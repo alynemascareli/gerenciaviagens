@@ -22,7 +22,7 @@ class Cliente extends Model {
         return $cliente;
     }
     
-    protected static function setData(cliente &$Cliente, $data){
+    protected static function setData(Cliente &$cliente, $data){
         $cliente->nome = $data['nome'];
         $cliente->email = $data['email'];
         $cliente->telefone = $data['telefone'];

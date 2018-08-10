@@ -1,19 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\model\Viagem;
 
 use Illuminate\Http\Request;
 
 class ViagemController extends Controller
 {
-    /**
+  /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $viagens = Viagem::get();
+        return view('/viagem/index', compact('viagens'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ViagemController extends Controller
      */
     public function create()
     {
-        //
+        return view('/viagem/create');
     }
 
     /**
@@ -34,8 +36,10 @@ class ViagemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Viagem::create($request->except('_token'));
+        return redirect('/viagem');
     }
+
 
     /**
      * Display the specified resource.

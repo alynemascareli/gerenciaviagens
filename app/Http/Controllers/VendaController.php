@@ -7,14 +7,15 @@ use Illuminate\Http\Request;
 
 class VendaController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $vendas = Venda::get();
+        return view('/venda/index', compact('vendas'));
     }
 
     /**
@@ -24,7 +25,7 @@ class VendaController extends Controller
      */
     public function create()
     {
-        //
+        return view('/venda/create');
     }
 
     /**
@@ -35,7 +36,8 @@ class VendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Venda::create($request->except('_token'));
+        return redirect('/venda');
     }
 
     /**

@@ -22,3 +22,4 @@ Route::resources([
     'cliente' => 'ClienteController',
     'home'=>'DashboardController',
 ]);
+Route::post('/cliente', 'ClienteController@store');

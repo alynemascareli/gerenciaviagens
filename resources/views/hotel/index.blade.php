@@ -4,7 +4,7 @@
 
 		<div class="row">
 			<div class="col-12 titulo">	
-				<h2>Clientes Cadastrados</h2>
+				<h2>Hoteis Cadastrados</h2>
 			</div>
 			<div	class="col-12">
 				
@@ -18,11 +18,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						@for ($i = 0; $i < count($clientes); $i++)
+						@for ($i = 0; $i < count($hoteis); $i++)
 						<tr>
-							<td>{{ $clientes[$i]['nome'] }}</td>
-							<td>{{ $clientes[$i]['telefone'] }}</td>
-							<td>{{ $clientes[$i]['datanascimento'] }}</td>
+							<td>{{ $hoteis[$i]['nome'] }}</td>
+							<td>{{ $hoteis[$i]['telefone'] }}</td>
+							<td>{{ $hoteis[$i]['datanascimento'] }}</td>
 							<td><span></span></td>
 						</tr>
 						@endfor
