@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'DashboardController@index');
+Route::get('/home', 'DashboardController@home');
+
+Route::resources([
+    'viagem' => 'ViagemController',
+    'onibus' => 'OnibusController',
+    'hotel' => 'HotelController',
+    'venda' => 'VendaController',
+    'cliente' => 'ClienteController',
+    'home'=>'DashboardController',
+]);
