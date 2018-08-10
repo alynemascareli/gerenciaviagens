@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\model\Hotel;
+
 
 class HotelController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $hoteis = Hotel::get();
+        return view('/hotel/index', compact('hoteis'));
     }
 
     /**
@@ -23,7 +26,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+        return view('/hotel/create');
     }
 
     /**
@@ -34,8 +37,10 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Hotel::create($request->except('_token'));
+        return redirect('/hotel');
     }
+
 
     /**
      * Display the specified resource.

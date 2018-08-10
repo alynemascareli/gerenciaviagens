@@ -1,16 +1,14 @@
-
  @extends('layout.index')
 
  @section('content')
+
 		<div class="row">
 			<div class="col-12 titulo">	
 			<h2>Novo Cliente</h2>
 			</div>
 			<div	class="col-12">
 		<form method="POST" action="/cliente">
-
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
 		  <div class="form-group">
 		    <label for="cliente_nome">Nome</label>
 		    <input type="text" class="form-control" id="cliente_nome" name="nome">
@@ -36,7 +34,6 @@
 		</form>
 
 </div>
-
 </div>
 <script type="text/javascript" charset="utf-8" async defer>
 	

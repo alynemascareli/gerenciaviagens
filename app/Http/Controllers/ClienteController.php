@@ -36,9 +36,9 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        #dd($request->all());
+
         Cliente::create($request->except('_token'));
-        return redirect('cliente');
+        return redirect('/cliente');
     }
 
     /**

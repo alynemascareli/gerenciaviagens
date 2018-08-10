@@ -7,14 +7,15 @@ use Illuminate\Http\Request;
 
 class PagamentoController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $pagamentos = Pagamento::get();
+        return view('/pagamento/index', compact('pagamentos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PagamentoController extends Controller
      */
     public function create()
     {
-        //
+        return view('/pagamento/create');
     }
 
     /**
@@ -35,8 +36,10 @@ class PagamentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pagamento::create($request->except('_token'));
+        return redirect('/pagamento');
     }
+
 
     /**
      * Display the specified resource.

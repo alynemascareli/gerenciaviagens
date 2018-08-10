@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function index()
     {
         return view('/home/index');
-        
+
         // return view('/layout/index');
     }
         public function home()
@@ -41,8 +41,9 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        // Cliente::create($request->except(''));
+        // dd($request->all());
+        Cliente::create($request->except('token'));
+        return redirect('/cliente');
     }
 
     /**

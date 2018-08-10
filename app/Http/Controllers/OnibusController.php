@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\model\Onibus;
 
 class OnibusController extends Controller
 {
-    /**
+  /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $onibus = Onibus::get();
+        return view('/onibus/index', compact('onibuss'));
     }
 
     /**
@@ -23,7 +25,7 @@ class OnibusController extends Controller
      */
     public function create()
     {
-        //
+        return view('/onibus/create');
     }
 
     /**
@@ -34,7 +36,8 @@ class OnibusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Onibus::create($request->except('_token'));
+        return redirect('/onibus');
     }
 
     /**
