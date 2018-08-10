@@ -16,40 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `hotel`
+-- Table structure for table `empresa`
 --
 
-DROP TABLE IF EXISTS `hotel`;
+DROP TABLE IF EXISTS `empresa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hotel` (
+CREATE TABLE `empresa` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) NOT NULL,
-  `proprietário` varchar(100) NOT NULL,
-  `telefone` varchar(14) NOT NULL,
-  `endereco` varchar(100) DEFAULT NULL,
-  `numero` varchar(5) DEFAULT NULL,
-  `bairro` varchar(30) DEFAULT NULL,
-  `cidade` varchar(50) DEFAULT NULL,
-  `estado` varchar(2) DEFAULT NULL,
-  `capacidade` varchar(2) DEFAULT NULL,
-  `acomodacao` varchar(2) DEFAULT NULL,
-  `observacao` longtext,
+  `nome` varchar(100) DEFAULT NULL,
+  `cnpj` varchar(15) DEFAULT NULL,
+  `nome_contato` varchar(45) DEFAULT NULL,
+  `telefone_contato` varchar(45) DEFAULT NULL,
+  `endereco_contato` varchar(45) DEFAULT NULL,
+  `numero_contato` varchar(45) DEFAULT NULL,
+  `cidade_contato` varchar(45) DEFAULT NULL,
+  `estado_contato` varchar(45) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `empresa_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `hotel`
+-- Dumping data for table `empresa`
 --
 
-LOCK TABLES `hotel` WRITE;
-/*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
-/*!40000 ALTER TABLE `hotel` ENABLE KEYS */;
+LOCK TABLES `empresa` WRITE;
+/*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
+/*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
