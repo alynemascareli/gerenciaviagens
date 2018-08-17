@@ -292,6 +292,18 @@
                             <a href="{{url('/')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Empresa<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/empresa/')}}">Empresas</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/empresa/create')}}">Nova Empresa</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Clientes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>

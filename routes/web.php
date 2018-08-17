@@ -15,6 +15,7 @@ Route::get('/', 'DashboardController@index');
 Route::get('/home', 'DashboardController@home');
 
 Route::resources([
+    'empresa' => 'EmpresaController',
     'viagem' => 'ViagemController',
     'onibus' => 'OnibusController',
     'hotel' => 'HotelController',
@@ -23,3 +24,4 @@ Route::resources([
     'home'=>'DashboardController',
 ]);
 Route::post('/cliente', 'ClienteController@store');
+Route::get('/empresa/apagar/{id}', 'EmpresaController@destroy');
