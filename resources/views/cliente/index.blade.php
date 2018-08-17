@@ -20,10 +20,10 @@
 					<tbody>
 						@for ($i = 0; $i < count($clientes); $i++)
 						<tr>
-							<td>{{ $clientes[$i]['nome'] }}</td>
-							<td>{{ $clientes[$i]['telefone'] }}</td>
-							<td>{{ $clientes[$i]['datanascimento'] }}</td>
-							<td><span></span></td>
+							<td>{{ $clientes[$i]->pessoa['nome'] }}</td>
+							<td>{{ $clientes[$i]->pessoa['telefone'] }}</td>
+							<td>{{ $clientes[$i]->pessoa['datanascimento'] }}</td>
+							<td><a href="{{url('/cliente/'.$clientes[$i]->id.'/edit')}}"><i class="fa fa-edit fa-fw"></i></a></td>
 						</tr>
 						@endfor
 					</tbody>

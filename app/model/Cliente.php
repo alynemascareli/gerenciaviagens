@@ -9,6 +9,12 @@ class Cliente extends Model {
     protected $table = 'cliente'; 
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+    protected $with=['pessoa'];
+
+     public function pessoa(){
+        return $this->hasOne(Pessoa::class, 'id','pessoa_id');
+    }
+ 
 
     public static function create (Array $data) {
         $cliente = new Cliente();
@@ -24,13 +30,9 @@ class Cliente extends Model {
     
 
     protected static function setData(Cliente &$cliente, $data){
-        $cliente->nome = $data['nome'];
-        $cliente->email = $data['email'];
-        $cliente->telefone = $data['telefone'];
-        $cliente->cpf = $data['cpf'];
-        $cliente->datanascimento = $data['datanascimento'];
-
-        $cliente->save();
+        $cliente->empresa_id = $data['empresa_id'];
+        $cliente->pessoa_id = $data['pessoa_id'];
+                $cliente->save();
     }
     
 }

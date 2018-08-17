@@ -31,6 +31,14 @@
 		    	<label for="cliente_datanascimento">Data de Nascimento</label>
 		    	<input type="date" class="form-control" id="cliente_datanascimento" name="datanascimento">
 		  	</div>
+		  	<div class="form-group">
+		    <label for="cliente_cpf">RG</label>
+		    <input type="text" class="form-control" id="cliente_cpf" name="rg">
+		  </div>
+		  <div class="form-group">
+		    <label for="cliente_cpf">data de Expedição</label>
+		    <input type="date" class="form-control" id="cliente_cpf" name="dataexpedicao">
+		  </div>
 
 		  <button type="submit" class="btn btn-primary">Salvar</button>
 		</form>
