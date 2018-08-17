@@ -51,6 +51,7 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
+
         //
     }
 
@@ -88,6 +89,11 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+       
+        $pessoa = Cliente::find($id);
+        Cliente::destroy($id);
+        Pessoa::destroy($pessoa['pessoa_id']);
+        return redirect('/cliente');
+
     }
 }

@@ -23,7 +23,16 @@
 							<td>{{ $clientes[$i]->pessoa['nome'] }}</td>
 							<td>{{ $clientes[$i]->pessoa['telefone'] }}</td>
 							<td>{{ $clientes[$i]->pessoa['datanascimento'] }}</td>
-							<td><a href="{{url('/cliente/'.$clientes[$i]->id.'/edit')}}"><i class="fa fa-edit fa-fw"></i></a></td>
+							<td><a href="{{url('/cliente/'.$clientes[$i]->id.'/edit')}}"><i class="fa fa-edit fa-fw"></i></a>							
+
+							<form method="POST" action="/cliente/{{ $clientes[$i]->id }}" accept-charset="UTF-8">
+								{{ method_field('DELETE') }}
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<a type="submit" href="#" type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-xs" data-original-title="Delete" onclick='this.parentNode.submit(); return false;'>
+							        <i class="fa fa-times"></i>
+							      </a>								
+							</form>
+							</td>
 						</tr>
 						@endfor
 					</tbody>
