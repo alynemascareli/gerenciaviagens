@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\model\Cliente;
+use App\model\Pessoa;
 
 class ClienteController extends Controller
 {
@@ -36,8 +37,9 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+        $pessoa_id = Pessoa::create($request->except('_token'));
 
-        Cliente::create($request->except('_token'));
+        Cliente::create(['pessoa_id'=>$pessoa_id['id'], 'empresa_id'=>parent::$configid]);
         return redirect('/cliente');
     }
 
@@ -49,6 +51,7 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
+
         //
     }
 
@@ -60,7 +63,8 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente  = Cliente::find($id);
+        return view('/cliente/edit', compact('cliente'));
     }
 
     /**
@@ -72,7 +76,9 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pessoa = Pessoa::find($request['pessoa_id']);
+        $pessoa_id = Pessoa::edit($pessoa,$request->except('_token','pessoa_id'));
+        return redirect('/cliente');
     }
 
     /**
@@ -83,6 +89,11 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+       
+        $pessoa = Cliente::find($id);
+        Cliente::destroy($id);
+        Pessoa::destroy($pessoa['pessoa_id']);
+        return redirect('/cliente');
+
     }
 }

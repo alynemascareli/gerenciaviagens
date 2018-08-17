@@ -25,3 +25,4 @@ Route::resources([
 ]);
 Route::post('/cliente', 'ClienteController@store');
 Route::get('/empresa/apagar/{id}', 'EmpresaController@destroy');
+
