@@ -4,7 +4,7 @@
 
 		<div class="row">
 			<div class="col-12 titulo">	
-			<h2>Novo Cliente</h2>
+			<h2>Nova Viagem</h2>
 			</div>
 			<div	class="col-12">
 		<form method="POST" action="/cliente">
@@ -14,11 +14,11 @@
 		    <input type="text" class="form-control" id="cliente_nome" name="nome">
 		  </div>
  			<div class="form-group">
-		    	<label for="cliente_email">email</label>
-		    	<input type="text" class="form-control" id="cliente_email" name="email">
+		    	<label for="cliente_email">Descrição</label>
+		    	<input type="text" class="form-control" id="cliente_descricao" name="descricao">
 		  	</div>
 		  	<div class="form-group">
-		    <label for="cliente_cpf">cpf</label>
+		    <label for="cliente_cpf">origem</label>
 		    <input type="text" class="form-control" id="cliente_cpf" name="cpf">
 		  </div>
  			<div class="form-group">
