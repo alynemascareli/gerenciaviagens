@@ -29,6 +29,7 @@ class Empresa extends Model
         $empresa->nome = $data['nome'];
         $empresa->cnpj = $data['cnpj'];
         $empresa->nome_contato = $data['nome_contato'];
+        $empresa->dominio = $data['dominio'];
         $empresa->telefone_contato = $data['telefone_contato'];
         $empresa->endereco_contato = $data['endereco_contato'];
         $empresa->numero_contato = $data['numero_contato'];

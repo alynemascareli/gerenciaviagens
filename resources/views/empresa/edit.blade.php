@@ -23,6 +23,10 @@
            <label for="nome_contato">Responsável</label>
            <input type="text" class="form-control" id="nome_contato" name="nome_contato" value="{{$empresa->nome_contato}}">
          </div>
+         <div class="form-group">
+           <label for="dominio">Dominio</label>
+           <input type="text" class="form-control" id="dominio" name="dominio"value="{{$empresa->dominio}}">
+         </div>
         <div class="form-group">
             <label for="telefone_contato">telefone</label>
             <input type="text" class="form-control" id="telefone_contato" name="telefone_contato" value="{{$empresa->telefone_contato}}">
