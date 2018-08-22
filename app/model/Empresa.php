@@ -10,6 +10,12 @@ class Empresa extends Model
 
     protected $hidden = ['created_at', 'updatade_at', 'deleted_at'];
 
+
+ protected $with = ['endereco'];
+
+     public function endereco(){
+        return $this->hasOne(Endereco::class, 'id_empresa','id');
+    }
     public static function create(Array $data)
     {
         $empresa = new Empresa();

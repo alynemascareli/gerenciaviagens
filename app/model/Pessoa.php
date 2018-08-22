@@ -10,6 +10,12 @@ class Pessoa extends Model {
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
+    protected $with = ['endereco'];
+
+    public function endereco(){
+        return $this->hasOne(Endereco::class, 'id_pessoa','id');
+    }
+
     public static function create (Array $data) {
         $pessoa = new Pessoa();
         self::setData($pessoa, $data);
