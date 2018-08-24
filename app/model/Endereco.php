@@ -24,8 +24,9 @@ class Endereco extends Model {
     
 
     protected static function setData(Endereco &$endereco, $data){
-        $endereco->nome = $data['nome'];
         $endereco->tipo = $data['tipo'];
+        $endereco->id_tipo = $data['id_tipo'];
+        $endereco->endereco = $data['endereco'];
         $endereco->numero = $data['numero'];
         $endereco->bairro = $data['bairro'];
         $endereco->cidade = $data['cidade'];

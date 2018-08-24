@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\model\Empresa;
+use PhpParser\Node\Scalar\Encapsed;
+use App\model\Endereco;
 
 class EmpresaController extends Controller
 {
@@ -36,7 +38,10 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        Empresa::create($request->except('_token'));
+        $empresa = Empresa::create($request->except('_token'));
+        $request['id_tipo'] = $empresa['id'];
+        $request['tipo'] = "empresa";
+        Endereco::create($request->except('_token'));
         return redirect('/empresa');
     }
 
@@ -59,7 +64,8 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        $empresa = Empresa::find($id);
+        $empresa = Empresa::with('endereco')->find($id);
+        //dd($empresa);
         return view('empresa/edit', compact('empresa'));
     }
 
