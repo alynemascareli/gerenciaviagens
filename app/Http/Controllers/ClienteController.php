@@ -38,7 +38,9 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $pessoa_id = Pessoa::create($request->except('_token'));
-
+        $request['id_tipo'] = $pessoa_id;
+        $request['tipo'] = "cliente";
+        Endereco::create($request->except('_token'));
         Cliente::create(['pessoa_id'=>$pessoa_id['id'], 'empresa_id'=>parent::$configid]);
         return redirect('/cliente');
     }
