@@ -13,7 +13,7 @@ class Pessoa extends Model {
     protected $with = ['endereco'];
 
     public function endereco(){
-        return $this->hasOne(Endereco::class, 'id_pessoa','id');
+        return $this->hasOne(Endereco::class, 'pessoa_id','id');
     }
 
     public static function create (Array $data) {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\model\Cliente;
 use App\model\Pessoa;
-
+use App\Http\Requests\MultipleRequest;
 class ClienteController extends Controller
 {
     /**
@@ -35,11 +35,11 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MultipleRequest $request)
     {
         $pessoa_id = Pessoa::create($request->except('_token'));
         $request['id_tipo'] = $pessoa_id;
-        $request['tipo'] = "cliente";
+        $request['tipo'] = "pessoa";
         Endereco::create($request->except('_token'));
         Cliente::create(['pessoa_id'=>$pessoa_id['id'], 'empresa_id'=>parent::$configid]);
         return redirect('/cliente');

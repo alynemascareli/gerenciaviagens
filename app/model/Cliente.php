@@ -14,6 +14,10 @@ class Cliente extends Model {
      public function pessoa(){
         return $this->hasOne(Pessoa::class, 'id','pessoa_id');
     }
+
+    public function endereco(){
+        return $this->hasOne(Endereco::class, 'id_tipo','pessoa_id');
+    }
  
 
     public static function create (Array $data) {
