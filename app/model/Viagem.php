@@ -31,11 +31,14 @@ class Viagem extends Model
         $viagem->descricao = $data['descricao'];
         $viagem->origem = $data['origem'];
         $viagem->destino = $data['destino'];
-        $viagem->viagem_id = $data['viagem_id'];
-        $viagem->onibus_id = $data['onibus_id'];
+        $viagem->quantidade = $data['quantidade'];
+        $viagem->data_saida = $data['data_saida'];
+        $viagem->data_retorno = $data['data_retorno'];
         $viagem->empresa_id = $data['empresa_id'];
         $viagem->quantidade = $data['quantidade'];
         $viagem->valor = $data['valor'];
+        $viagem->data_saida = $data['data_saida'];
+        $viagem->data_retorno = $data['data_retorno'];
         $viagem->save();
     }
 }

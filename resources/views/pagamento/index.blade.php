@@ -4,25 +4,25 @@
 
 		<div class="row">
 			<div class="col-12 titulo">	
-				<h2>Vendas Cadastradas</h2>
+				<h2>Pagamentos Cadastrados</h2>
 			</div>
 			<div	class="col-12">
 				
 				<table class="table table-responsive">	
 					<thead>
 						<tr>
-							<th>Viagem</th>
-							<th>Cliente</th>
-							<th>Pagamento</th>
+							<th>Nome</th>
+							<th>Data</th>
+							<th>Valor</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						@for ($i = 0; $i < count($vendas); $i++)
+						@for ($i = 0; $i < count($pagamentos); $i++)
 						<tr>
-							<td>{{ $vendas[$i]['viagem']->nome }}</td>
-							<td>{{ $vendas[$i]['cliente']->pessoa->nome }}</td>
-							<td>{{ $vendas[$i]['tipo_pagamento']['nome'].' '.$vendas[$i]['tipo_pagamento']['descricao'] }}</td>
+							<td>{{ $pagamentos[$i]['nome'] }}</td>
+							<td>{{ $pagamentos[$i]['data'] }}</td>
+							<td>{{ $pagamentos[$i]['valor'] }}</td>
 							<td><span></span></td>
 						</tr>
 						@endfor

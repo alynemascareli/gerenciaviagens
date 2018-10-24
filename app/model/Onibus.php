@@ -30,7 +30,7 @@ class Onibus extends Model
         $onibus->placa = $data['placa'];
         $onibus->empresa = $data['empresa'];
         $onibus->descricao = $data['descricao'];
-        $onibus->enderempresa_ideco = $data['empresa_id'];
+        $onibus->empresa_id = $data['empresa_id'];
         $onibus->save();
     }
 }

@@ -12,8 +12,11 @@
 					<thead>
 						<tr>
 							<th>Nome</th>
-							<th>Telefone</th>
-							<th>Data de Nascimento</th>
+							<th>Destino</th>
+							<th>Quantidade</th>
+							<th>Valor</th>
+							<th>Data de Saída</th>
+							<th>Data de Retorno</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -21,8 +24,12 @@
 						@for ($i = 0; $i < count($viagens); $i++)
 						<tr>
 							<td>{{ $viagens[$i]['nome'] }}</td>
-							<td>{{ $viagens[$i]['telefone'] }}</td>
-							<td>{{ $viagens[$i]['datanascimento'] }}</td>
+							<td>{{ $viagens[$i]['destino'] }}</td>
+							<td>{{ $viagens[$i]['quantidade'] }}</td>
+							<td>{{ $viagens[$i]['valor'] }}</td>
+							<td>{{ $viagens[$i]['data_saida'].' ('.$viagens[$i]['origem'].')' }}</td>
+							<td>{{ $viagens[$i]['data_retorno'].' ('.$viagens[$i]['destino'].')' }}</td>
+
 							<td><span></span></td>
 						</tr>
 						@endfor

@@ -36,6 +36,7 @@ class ViagemController extends Controller
      */
     public function store(Request $request)
     {
+        $request['empresa_id']=1;
         Viagem::create($request->except('_token'));
         return redirect('/viagem');
     }

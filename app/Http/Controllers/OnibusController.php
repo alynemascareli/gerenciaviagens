@@ -15,7 +15,7 @@ class OnibusController extends Controller
     public function index()
     {
         $onibus = Onibus::get();
-        return view('/onibus/index', compact('onibuss'));
+        return view('/onibus/index', compact('onibus'));
     }
 
     /**
@@ -36,6 +36,7 @@ class OnibusController extends Controller
      */
     public function store(Request $request)
     {
+        $request['empresa_id'] = 1;
         Onibus::create($request->except('_token'));
         return redirect('/onibus');
     }

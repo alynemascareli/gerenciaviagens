@@ -4,31 +4,23 @@
 
 		<div class="row">
 			<div class="col-12 titulo">	
-			<h2>Novo Cliente</h2>
+			<h2>Novo Ônibus</h2>
 			</div>
 			<div	class="col-12">
-		<form method="POST" action="/cliente">
+		<form method="POST" action="/onibus">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		  <div class="form-group">
-		    <label for="cliente_nome">Nome</label>
-		    <input type="text" class="form-control" id="cliente_nome" name="nome">
+		    <label for="onibus_placa">placa</label>
+		    <input type="text" class="form-control" id="onibus_placa" name="placa">
 		  </div>
  			<div class="form-group">
-		    	<label for="cliente_email">email</label>
-		    	<input type="text" class="form-control" id="cliente_email" name="email">
+		    	<label for="onibus_empresa">empresa</label>
+		    	<input type="text" class="form-control" id="onibus_empresa" name="empresa">
 		  	</div>
 		  	<div class="form-group">
-		    <label for="cliente_cpf">cpf</label>
-		    <input type="text" class="form-control" id="cliente_cpf" name="cpf">
+		    <label for="onibus_descricao">descricao</label>
+		    <input type="text" class="form-control" id="onibus_descricao" name="descricao">
 		  </div>
- 			<div class="form-group">
-		    	<label for="cliente_telefone">telefone</label>
-		    	<input type="text" class="form-control" id="cliente_telefone" name="telefone">
-		  	</div>
-			<div class="form-group">
-		    	<label for="cliente_datanascimento">Data de Nascimento</label>
-		    	<input type="date" class="form-control" id="cliente_datanascimento" name="datanascimento">
-		  	</div>
 
 		  <button type="submit" class="btn btn-primary">Salvar</button>
 		</form>

@@ -13,7 +13,7 @@
 						<tr>
 							<th>Nome</th>
 							<th>Telefone</th>
-							<th>Data de Nascimento</th>
+							<th>Proprietário</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -22,7 +22,7 @@
 						<tr>
 							<td>{{ $hoteis[$i]['nome'] }}</td>
 							<td>{{ $hoteis[$i]['telefone'] }}</td>
-							<td>{{ $hoteis[$i]['datanascimento'] }}</td>
+							<td>{{ $hoteis[$i]['proprietario'] }}</td>
 							<td><span></span></td>
 						</tr>
 						@endfor

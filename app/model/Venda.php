@@ -9,6 +9,19 @@ class Venda extends Model
     protected $table = 'venda'; 
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+    protected $with = ['cliente', 'viagem','tipopagamento'];
+
+    public function cliente(){
+        return $this->hasOne(Cliente::class, 'id','cliente_id');
+    }
+
+    public function viagem(){
+        return $this->hasOne(Viagem::class, 'id','viagem_id');
+    }
+
+    public function tipopagamento(){
+        return $this->hasOne(TipoPagamento::class, 'id','tipo_pagamento_id');
+    }
 
     
     
@@ -31,6 +44,12 @@ class Venda extends Model
         $venda->pagamento_id = $data['pagamento_id'];
         $venda->confirmacao = $data['confirmacao'];
         $venda->empresa_id = $data['empresa_id'];
+        $venda->cliente_empresa_id = $data['cliente_empresa_id'];
+        $venda->viagem_empresa_id = $data['viagem_empresa_id'];
+        $venda->tipo_pagamento_id = $data['tipo_pagamento_id'];
+        $venda->tipo_pagamento_empresa_id = $data['tipo_pagamento_empresa_id'];
+
+
         $venda->save();
     }
 

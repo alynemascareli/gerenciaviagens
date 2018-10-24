@@ -4,7 +4,7 @@
 
 		<div class="row">
 			<div class="col-12 titulo">	
-			<h2>Novo Hotel/Pousada</h2>
+			<h2>Novo Pagamento</h2>
 			</div>
 			<div	class="col-12">
 		<form method="POST" action="/hotel">

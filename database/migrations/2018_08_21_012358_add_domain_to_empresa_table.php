@@ -13,10 +13,12 @@ class AddDomainToEmpresaTable extends Migration
      */
     public function up()
     {
-        Schema::table('empresa', function (Blueprint $table) {
-            $table->string('dominio');
-        });
+        
+        // Schema::table('empresa', function (Blueprint $table) {
+        //    if (!Schema::hasColumn('dominio')) { $table->string('dominio');}
+        // });
     }
+    
 
     /**
      * Reverse the migrations.
@@ -25,8 +27,8 @@ class AddDomainToEmpresaTable extends Migration
      */
     public function down()
     {
-        Schema::table('empresa', function (Blueprint $table) {
-            $table->string('dominio');
-        });
+        // Schema::table('empresa', function (Blueprint $table) {
+        //     $table->string('dominio');
+        // });
     }
 }

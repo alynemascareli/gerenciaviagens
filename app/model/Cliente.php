@@ -32,7 +32,7 @@ class Cliente extends Model {
     protected static function setData(Cliente &$cliente, $data){
         $cliente->empresa_id = $data['empresa_id'];
         $cliente->pessoa_id = $data['pessoa_id'];
-                $cliente->save();
+        $cliente->save();
     }
     
 }

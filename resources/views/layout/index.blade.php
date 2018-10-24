@@ -363,7 +363,18 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                       
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Pagamentos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/pagamento/')}}">Listar</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/pagamento/create')}}">Novo pagamento</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                        
                     </ul>
                 </div>
