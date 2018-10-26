@@ -22,6 +22,7 @@ Route::resources([
     'venda' => 'VendaController',
     'cliente' => 'ClienteController',
     'home'=>'DashboardController',
+    'motorista' => 'MotoristaController',
 ]);
 Route::post('/cliente', 'ClienteController@store');
 Route::get('/empresa/apagar/{id}', 'EmpresaController@destroy');
