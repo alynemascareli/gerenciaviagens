@@ -81,8 +81,13 @@ class ClienteController extends Controller
      */
     public function update(MultipleRequestPessoaEndereco $request, $id)
     {
+        $cliente = Cliente::find($id);
+        $endereco = $cliente->endereco;
+        $request['id_tipo'] = $cliente['id'];
+        $request['tipo'] = "cliente";
         $pessoa = Pessoa::find($request['pessoa_id']);
-        $pessoa_id = Pessoa::edit($pessoa,$request->except('_token','pessoa_id'));
+        Pessoa::edit($pessoa,$request->except('_token','pessoa_id'));
+        Endereco::edit($endereco, $request->except('_token'));
         return redirect('/cliente');
     }
 
@@ -95,9 +100,11 @@ class ClienteController extends Controller
     public function destroy($id)
     {
        
-        $pessoa = Cliente::find($id);
+        $cliente = Cliente::find($id);
+        $endereco = $cliente->endereco;
         Cliente::destroy($id);
-        Pessoa::destroy($pessoa['pessoa_id']);
+        Pessoa::destroy($cliente['pessoa_id']);
+        $endereco->delete();
         return redirect('/cliente');
 
     }
