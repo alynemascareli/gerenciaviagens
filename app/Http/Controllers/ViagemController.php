@@ -50,8 +50,8 @@ class ViagemController extends Controller
      */
     public function show($id)
     {
-        $hotel = Hotel::find($id);
-        return view('/hotel/edit', compact('hotel'));
+        $viagem = Viagem::find($id);
+        return view('/viagem/edit', compact('viagem'));
     }
 
     /**
@@ -74,9 +74,9 @@ class ViagemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $hotel = Hotel::find($request['hotel_id']);
-        $hotel_id = Hotel::edit($hotel,$request->except('_token','hotel_id'));
-        return redirect('/hotel');
+        $viagem = Viagem::find($request['viagem_id']);
+        $viagem_id = Viagem::edit($viagem,$request->except('_token','viagem_id'));
+        return redirect('/viagem');
     }
 
     /**
@@ -87,7 +87,7 @@ class ViagemController extends Controller
      */
     public function destroy($id)
     {
-        Hotel::destroy($id);
-        return redirect('/hotel');
+        Viagem::destroy($id);
+        return redirect('/viagem');
     }
 }
