@@ -49,7 +49,8 @@ class OnibusController extends Controller
      */
     public function show($id)
     {
-        //
+        $onibus = Onibus::find($id);
+        return view('/onibus/edit', compact('onibus'));
     }
 
     /**
@@ -72,7 +73,9 @@ class OnibusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $onibus = Onibus::find($request['onibus_id']);
+        $onibus_id = Onibus::edit($onibus,$request->except('_token','onibus_id'));
+        return redirect('/onibus');
     }
 
     /**
@@ -83,6 +86,7 @@ class OnibusController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Onibus::destroy($id);
+        return redirect('/onibus');
     }
 }

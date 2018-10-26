@@ -23,7 +23,8 @@ Route::resources([
     'cliente' => 'ClienteController',
     'home'=>'DashboardController',
     'pagamento'=>'PagamentoController',
+    // 'api'=>'APIController',
 ]);
 Route::post('/cliente', 'ClienteController@store');
 Route::get('/empresa/apagar/{id}', 'EmpresaController@destroy');
-
+Route::get('api/pagamento/{id}', 'ApiController@pagamento');

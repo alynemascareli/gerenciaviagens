@@ -8,57 +8,39 @@
 			</div>
 			<div	class="col-12">
 		<form method="POST" action="/hotel">
-		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		  <div class="form-group">
-		    <label for="hotel_nome">Cliente</label>
-		    <select name="" id=""></select>
-		  </div>
- 			<div class="form-group">
-		    	<label for="hotel_proprietario">Proprietário</label>
-		    	<input type="text" class="form-control" id="hotel_proprietario" name="proprietario">
-		  	</div>
-		  	<div class="form-group">
-		    <label for="hotel_telefone">telefone</label>
-		    <input type="text" class="form-control" id="hotel_telefone" name="telefone">
-		  </div>
- 			<div class="form-group">
-		    	<label for="hotel_endereco">endereco</label>
-		    	<input type="text" class="form-control" id="hotel_endereco" name="endereco">
-		  	</div>
-				<div class="form-group">
-		    	<label for="hotel_numero">numero</label>
-		    	<input type="text" class="form-control" id="hotel_numero" name="numero">
-		  	</div>
-				<div class="form-group">
-		    	<label for="hotel_bairro">bairro</label>
-		    	<input type="text" class="form-control" id="hotel_bairro" name="bairro">
-		  	</div>
-				<div class="form-group">
-		    	<label for="hotel_cidade">cidade</label>
-		    	<input type="text" class="form-control" id="hotel_cidade" name="cidade">
-		  	</div>
-				<div class="form-group">
-		    	<label for="hotel_estado">estado</label>
-		    	<input type="text" class="form-control" id="hotel_estado" name="estado">
-		  	</div>
-				<div class="form-group">
-		    	<label for="hotel_capacidade">capacidade</label>
-		    	<input type="text" class="form-control" id="hotel_capacidade" name="capacidade">
-		  	</div>
-				<div class="form-group">
-		    	<label for="hotel_acomodacao">acomodacao</label>
-		    	<input type="text" class="form-control" id="hotel_acomodacao" name="acomodacao">
-		  	</div>
-				<div class="form-group">
-		    	<label for="hotel_observacao">observacao</label>
-		    	<input type="text" class="form-control" id="hotel_observacao" name="observacao">
-		  	</div>
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">		 
+		<div class="form-group">
+			<label for="venda_viagem">Venda</label>
+				<select name="viagem_id" id="venda_viagem" onchange="verificaParcelas()">
+					@for ($i = 0; $i < count($venda); $i++)
+						<option value="{{ $venda[$i]->id }}">{{ $venda[$i]->cliente->pessoa->nome." - ".$venda[$i]->viagem->nome }}</option>
+					@endfor
+				</select>
+		</div>
+		<div>
+		<textarea name="" id="demo" cols="30" rows="10"></textarea>
+		</div>
 		  <button type="submit" class="btn btn-primary">Salvar</button>
 		</form>
 
 </div>
 </div>
 <script type="text/javascript" charset="utf-8" async defer>
-	
+	function verificaParcelas(){
+		let id = document.getElementById('venda_viagem').value;
+		let url = "http://gerenciaviagens/api/pagamento/"+id;
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			// Typical action to be performed when the document is ready:
+			document.getElementById("demo").innerHTML = xhttp.responseText;
+			}
+		};
+		xhttp.open("GET", url, true);
+		xhttp.send();
+	}
+	window.onload = function() {
+		verificaParcelas();
+};
 </script>
 @stop

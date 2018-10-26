@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\model\Pagamento;
+
+use App\model\Venda;
+
 use Illuminate\Http\Request;
 
 class PagamentoController extends Controller
@@ -25,10 +28,9 @@ class PagamentoController extends Controller
      */
     public function create()
     {
-        $cliente = Cliente::with('Viagem')->get();
-        $viagem = Viagem::get();
-        $pagamento = TipoPagamento::get();
-        return view('/pagamento/create', compact('client','viagem','pagamento'));
+        $venda = Venda::get();
+
+        return view('/pagamento/create', compact('venda'));
     }
 
     /**

@@ -23,7 +23,16 @@
 							<td>{{ $hoteis[$i]['nome'] }}</td>
 							<td>{{ $hoteis[$i]['telefone'] }}</td>
 							<td>{{ $hoteis[$i]['proprietario'] }}</td>
-							<td><span></span></td>
+							<td>
+							<a href="{{url('/hotel/'.$hoteis[$i]['id'])}}"><i class="fa fa-pencil  fa-"></i><a>
+							<form method="POST" action="/hotel/{{ $hoteis[$i]->id }}" accept-charset="UTF-8">
+								{{ method_field('DELETE') }}
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<a type="submit" href="#" type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-xs" data-original-title="Delete" onclick='this.parentNode.submit(); return false;'>
+							        <i class="fa fa-times"></i>
+							      </a>								
+							</form>
+							</td>
 						</tr>
 						@endfor
 					</tbody>
