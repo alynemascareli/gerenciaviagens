@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\model\Empresa;
 use PhpParser\Node\Scalar\Encapsed;
 use App\model\Endereco;
-use App\Http\Requests\MultipleRequest;
+use App\Http\Requests\MultipleRequestEmpresaEndereco;
 
 class EmpresaController extends Controller
 {
@@ -32,7 +32,7 @@ class EmpresaController extends Controller
     }
 
  
-    public function store(MultipleRequest $request)
+    public function store(MultipleRequestEmpresaEndereco $request)
     {
         $empresa = Empresa::create($request->except('_token'));
         $request['id_tipo'] = $empresa['id'];
@@ -72,7 +72,7 @@ class EmpresaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(MultipleRequest $request, $id)
+    public function update(MultipleRequestEmpresaEndereco $request, $id)
     {
         $empresa = Empresa::with('endereco')->find($id);
         $endereco = $empresa->endereco;

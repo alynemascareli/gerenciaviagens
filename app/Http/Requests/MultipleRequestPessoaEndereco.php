@@ -3,8 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Model\Cliente;
+use App\Model\Endereco;
 
-class PessoaRequest extends FormRequest
+class MultipleRequestPessoaEndereco extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,22 +25,27 @@ class PessoaRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'nome' => 'required',
-            'email' => 'required',
-            'telefone' => 'required',
-            'cpf' => 'required',
-            'datanascimento' => 'required',
-            'rg' => 'required',
-            'dataexpedicao' => 'required',
+        $formRequests = [
+            PessoaRequest::class,
+            EnderecoRequest::class,
+            ClienteRequest::class,
         ];
+
+        $rules = [];
+
+        foreach ($formRequests as $source) {
+            $rules = array_merge(
+                $rules, (new $source)->rules()
+            );
+        }
+
+        return $rules;
     }
 
     public function messages()
     {
-        return [
+        return[
             'required' => 'O campo ":attribute" é obrigatório!'
         ];
     }
-
 }

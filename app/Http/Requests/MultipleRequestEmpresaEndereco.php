@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Model\Endereco;
 
-class MultipleRequest extends FormRequest
+class MultipleRequestEmpresaEndereco extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,6 @@ class MultipleRequest extends FormRequest
         $formRequests = [
             EmpresaRequest::class,
             EnderecoRequest::class,
-            PessoaRequest::class
         ];
 
         $rules = [];

@@ -9,15 +9,16 @@ class Cliente extends Model {
     protected $table = 'cliente'; 
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
-    protected $with=['pessoa'];
+    protected $with=['pessoa', 'endereco'];
 
      public function pessoa(){
         return $this->hasOne(Pessoa::class, 'id','pessoa_id');
     }
 
     public function endereco(){
-        return $this->hasOne(Endereco::class, 'id_tipo','pessoa_id');
+        return $this->hasOne(Endereco::class, 'id_tipo', 'id');
     }
+
  
 
     public static function create (Array $data) {
