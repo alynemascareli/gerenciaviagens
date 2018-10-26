@@ -10,8 +10,8 @@
 		<form method="POST" action="/hotel">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		  <div class="form-group">
-		    <label for="hotel_nome">Nome</label>
-		    <input type="text" class="form-control" id="hotel_nome" name="nome">
+		    <label for="hotel_nome">Cliente</label>
+		    <select name="" id=""></select>
 		  </div>
  			<div class="form-group">
 		    	<label for="hotel_proprietario">Proprietário</label>

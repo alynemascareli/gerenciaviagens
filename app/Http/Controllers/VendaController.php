@@ -48,8 +48,37 @@ class VendaController extends Controller
 
         $pagamentos = TipoPagamento::where('id',$request['tipo_pagamento_id'])->get();
         $viagem = Viagem::where('id',$request['viagem_id'])->get();
-        
+        $date =  date('Y-m-d H:i:s');
+       
         if($pagamentos[0]->tipo==0){
+            $valor_divisao = $viagem[0]->valor/$pagamentos[0]->descricao;
+            for ($i=1; $i <= $pagamentos[0]->descricao; $i++) { 
+                // $pagamento = new Pagamento();
+                // $pagamento->valor = $valor_divisao;
+                // // $pagamento->viagem_id= $viagem[0]->id;
+                // // $pagamento->cliente_id= $request['cliente_id'];
+                // $pagamento->descricao= $pagamentos[0]->descricao."x";
+                // $pagamento->empresa_id= 1;
+                // $pagamento->vencimento= date('Y-m-d H:i:s');
+                // $pagamento->parcela= $i;
+                // $pagamento->situacao= 1;
+                // $pagamento->pagamento= date('Y-m-d H:i:s');
+                $days = $i * 30 ;
+                $vencimento = date('Y-m-d H:i:s', strtotime($date. ' + '.$days.' days'));
+                $pagamento = [
+                    'valor' => $valor_divisao,
+                    // 'viagem_id'=> $viagem[0]->id,
+                    // 'cliente_id'=> $request['cliente_id'],
+                    'descricao'=> $pagamentos[0]->descricao,
+                    'empresa_id'=> 1,
+                    'vencimento'=> $vencimento,
+                    'parcela'=> $i,
+                    'situacao'=> 1,
+                    'pagamento'=>$date,
+                ];
+            Pagamento::create($pagamento);
+
+            }
             //criar parcelas c/ vencimento
             //realizar um for c/ a quantidade de pagamentos em $pagamentos[0]->descricao,
             //gerar uma parcela p/ cada
@@ -58,16 +87,16 @@ class VendaController extends Controller
             
         }else{
             //pgamento a vista
-            // $pagamento = new Pagamento();
-            // $pagamento->valor = $viagem[0]->valor;
-            // $pagamento->viagem_id= $viagem[0]->id;
-            // $pagamento->cliente_id= $request['cliente_id'];
-            // $pagamento->descricao= $pagamentos[0]->descricao;
-            // $pagamento->empresa_id= 1;
-            // $pagamento->vencimento= date('Y-m-d H:i:s');
-            // $pagamento->parcela= 1;
-            // $pagamento->situacao= 1;
-            // $pagamento->pagamento= date('Y-m-d H:i:s');
+            $pagamento = new Pagamento();
+            $pagamento->valor = $viagem[0]->valor;
+            $pagamento->viagem_id= $viagem[0]->id;
+            $pagamento->cliente_id= $request['cliente_id'];
+            $pagamento->descricao= $pagamentos[0]->descricao;
+            $pagamento->empresa_id= 1;
+            $pagamento->vencimento= $date;
+            $pagamento->parcela= 1;
+            $pagamento->situacao= 1;
+            $pagamento->pagamento= $date;
 
             $pagamento = [
                 'valor' => $viagem[0]->valor,

@@ -25,7 +25,10 @@ class PagamentoController extends Controller
      */
     public function create()
     {
-        return view('/pagamento/create');
+        $cliente = Cliente::with('Viagem')->get();
+        $viagem = Viagem::get();
+        $pagamento = TipoPagamento::get();
+        return view('/pagamento/create', compact('client','viagem','pagamento'));
     }
 
     /**

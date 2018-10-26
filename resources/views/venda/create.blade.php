@@ -29,7 +29,9 @@
 		    <label for="venda_Pagamento">Pagamento</label>
 				<select name="tipo_pagamento_id" id="venda_pagamento">
 						@for ($i = 0; $i < count($pagamento); $i++)
- 							<option value="{{ $pagamento[$i]->id }}">{{ $pagamento[$i]->nome.' '.$pagamento[$i]->descricao }}</option>
+ 							@if($pagamento[$i]->tipo==1)<option value="{{ $pagamento[$i]->id }}">{{ $pagamento[$i]->nome.' '.$pagamento[$i]->descricao }}</option>
+ 							@else<option value="{{ $pagamento[$i]->id }}">{{ $pagamento[$i]->nome.' '.$pagamento[$i]->descricao.' x' }}</option>
+							 @endif
 						@endfor
 				</select>		  
 				</div>
