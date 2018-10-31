@@ -21,14 +21,14 @@ class Motorista extends Model
         return $motorista;
     }
     
-    public static function edit (Cliente $motorista, Array $data) {
+    public static function edit (Motorista $motorista, Array $data) {
         self::setData($motorista, $data);
         
         return $motorista;
     }
     
 
-    protected static function setData(Cliente &$motorista, $data){
+    protected static function setData(Motorista &$motorista, $data){
         $motorista->cnh = $data['cnh'];
         $motorista->pessoa_id = $data['pessoa_id'];
                 $motorista->save();

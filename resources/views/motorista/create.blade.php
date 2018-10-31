@@ -4,7 +4,7 @@
 @section('content')
        <div class="row">
            <div class="col-12 titulo">	
-           <h2>Novo MOtorista</h2>
+           <h2>Novo Motorista</h2>
            </div>
            @if(count($errors) > 0)
        <div class="alert alert-danger">

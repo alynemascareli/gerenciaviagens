@@ -92,7 +92,10 @@ class EmpresaController extends Controller
     public function destroy($id)
     {
         $empresa = Empresa::find($id);
+        $endereco = $empresa->endereco;
+
         $empresa->delete();
+        $endereco->delete();
 
         return redirect('/empresa');
     }
