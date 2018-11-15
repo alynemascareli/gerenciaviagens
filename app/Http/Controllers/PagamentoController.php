@@ -18,10 +18,12 @@ class PagamentoController extends Controller
      */
     public function index()
     {
-        $pagamentos = Pagamento::get();
-        return view('/pagamento/index', compact('pagamentos'));
+        $vendas = Venda::join('pagamento','venda_id', 'venda.id')->where('pagamento.pagamento', date('1900-01-01 00:00:00'))->get();
+        $titulo = "Pagamentos à receber";
+        return view('/pagamento/index', compact('vendas', 'titulo'));
     }
 
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -29,10 +31,7 @@ class PagamentoController extends Controller
      */
     public function create()
     {
-        $viagem = Viagem::get();
-       
-        
-
+        $viagem = Viagem::get();        
         return view('/pagamento/create', compact( 'viagem'));
     }
 
@@ -109,5 +108,12 @@ class PagamentoController extends Controller
     public function destroy(Pagamento $pagamento)
     {
         //
+    }
+    public function recebidos()
+    {
+        $vendas = Venda::join('pagamento','venda_id', 'venda.id')->where('pagamento.pagamento','!=' ,date('1900-01-01 00:00:00'))->get();
+        $titulo = "Pagamentos já recebidos";
+       
+        return view('/pagamento/index', compact('vendas','titulo'));
     }
 }

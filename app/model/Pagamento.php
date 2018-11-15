@@ -10,7 +10,7 @@ class Pagamento extends Model
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
-    
+
     public static function create (Array $data) {
         $pagamento = new Pagamento();
         self::setData($pagamento, $data);
@@ -31,7 +31,7 @@ class Pagamento extends Model
         $pagamento->empresa_id = $data['empresa_id'];
         $pagamento->vencimento = $data['vencimento'];
         $pagamento->parcela = $data['parcela'];
-        $pagamento->situacao = $data['situacao'];
+        // $pagamento->situacao = $data['situacao'];
         $pagamento->pagamento = $data['pagamento'];
         $pagamento->venda_id = $data['venda_id'];
         $pagamento->save();

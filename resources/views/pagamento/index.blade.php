@@ -4,7 +4,7 @@
 
 		<div class="row">
 			<div class="col-12 titulo">	
-				<h2>Pagamentos Cadastrados</h2>
+				<h2>{{$titulo}}</h2>
 			</div>
 			<div	class="col-12">
 				
@@ -13,25 +13,41 @@
 						<tr>
 							<th>Cliente</th>
 							<th>Viagem</th>
-							<th>Tipo Pagamento/ Parcela</th>
+							<th>Tipo Pagamento</th>
+							<th>Parcela</th>
 							<th>Valor</th>
-							<th>Data Pagamento</th>
+							<th>Data Vencimento</th>							
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						@for ($i = 0; $i < count($pagamentos); $i++)
+						@for ($i = 0; $i < count($vendas); $i++)
+						@if(strtotime($vendas[$i]->vencimento) >= strtotime(date("Y-m-d")))
 						<tr>
-							<td>nome cliente</td>
-							<td>nome viagem</td>
-							<td>{{ $pagamentos[$i]['parcela'] }}</td>
-							<td>{{ $pagamentos[$i]['pagamento'] }}</td>
-							<td>R$ {{ number_format($pagamentos[$i]['valor'],2)	 }}</td>
-							<td><span></spa	n></td>
+							@else
+							<tr class="atrasado">
+
+							@endif
+							<td>{{$vendas[$i]->cliente['pessoa']->nome}}</td>
+							<td>{{$vendas[$i]->viagem['nome']}}</td>					
+
+							<td>{{ $vendas[$i]->tipopagamento['nome'] }}</td>
+							<td>{{ $vendas[$i]->parcela }}</td>
+							<td>R$ {{ number_format($vendas[$i]->valor,2)	 }}</td>
+							<td>{{ $vendas[$i]->vencimento }}</td>
+							<td><a href="#"><i class="fa fa-pencil  fa-"></i><a></td>
 						</tr>
 						@endfor
 					</tbody>
 				</table>
 			</div>
 		</div>
+		<style>
+			.atrasado{
+				background: #de5156
+			}
+			.pago{				
+				background: #7cd25a;
+			}
+		</style>
 @stop

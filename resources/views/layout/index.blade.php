@@ -367,7 +367,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Pagamentos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('/pagamento/')}}">Listar</a>
+                                    <a href="{{url('/pagamento/')}}">À receber</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/pagamento/recebidos')}}">Recebidos</a>
                                 </li>
                                 <li>
                                     <a href="{{url('/pagamento/create')}}">Novo pagamento</a>

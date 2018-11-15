@@ -9,7 +9,15 @@ class Venda extends Model
     protected $table = 'venda'; 
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
-    protected $with = ['cliente'];
+    protected $with = ['cliente','tipopagamento','viagem'];
+
+    public function tipopagamento(){
+        return $this->hasOne(TipoPagamento::class, 'id','tipo_pagamento_id');
+    }
+    public function viagem(){
+        return $this->hasOne(Viagem::class, 'id','viagem_id');
+    }
+
 
     public function cliente(){
         return $this->hasOne(Cliente::class, 'id','cliente_id');

@@ -75,7 +75,7 @@ class VendaController extends Controller
                         'vencimento'=> $vencimento,
                         'parcela'=> $i,
                         'situacao'=> 1,
-                        'pagamento'=>$date,
+                        'pagamento'=>date('1900-01-01'),
                         'venda_id'=>$venda['id']
                     ];
                 Pagamento::create($pagamento);
