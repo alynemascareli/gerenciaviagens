@@ -40,7 +40,7 @@
     <!-- Morris Charts JavaScript -->
     <script src="/layout/vendor/raphael/raphael.min.js"></script>
     <script src="/layout/vendor/morrisjs/morris.min.js"></script>
-    <script src="/layout/data/morris-data.js"></script>
+    <!-- <script src="/layout/data/morris-data.js"></script> -->
 
     <!-- Custom Theme JavaScript -->
     <script src="/layout/dist/js/sb-admin-2.js"></script>

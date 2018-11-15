@@ -33,6 +33,7 @@ class Pagamento extends Model
         $pagamento->parcela = $data['parcela'];
         $pagamento->situacao = $data['situacao'];
         $pagamento->pagamento = $data['pagamento'];
+        $pagamento->venda_id = $data['venda_id'];
         $pagamento->save();
     }
 }

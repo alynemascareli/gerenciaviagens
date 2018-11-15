@@ -48,9 +48,10 @@ class ViagemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function edit($id)
     {
         $viagem = Viagem::find($id);
+        
         return view('/viagem/edit', compact('viagem'));
     }
 
@@ -60,11 +61,7 @@ class ViagemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -75,6 +72,8 @@ class ViagemController extends Controller
     public function update(Request $request, $id)
     {
         $viagem = Viagem::find($request['viagem_id']);
+        $request['empresa_id']=1;
+
         $viagem_id = Viagem::edit($viagem,$request->except('_token','viagem_id'));
         return redirect('/viagem');
     }

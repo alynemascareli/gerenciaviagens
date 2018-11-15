@@ -26,14 +26,18 @@
 				</select>
 		  	</div>
 		  	<div class="form-group">
-		    <label for="venda_Pagamento">Pagamento</label>
-				<select name="tipo_pagamento_id" id="venda_pagamento">
-						@for ($i = 0; $i < count($pagamento); $i++)
- 							@if($pagamento[$i]->tipo==1)<option value="{{ $pagamento[$i]->id }}">{{ $pagamento[$i]->nome.' '.$pagamento[$i]->descricao }}</option>
- 							@else<option value="{{ $pagamento[$i]->id }}">{{ $pagamento[$i]->nome.' '.$pagamento[$i]->descricao.' x' }}</option>
-							 @endif
-						@endfor
-				</select>		  
+					<label for="venda_Pagamento">Pagamento</label>
+					<select name="tipo_pagamento_id" id="venda_pagamento">
+							@for ($i = 0; $i < count($pagamento); $i++)
+								@if($pagamento[$i]->tipo==1)<option value="{{ $pagamento[$i]->id }}">{{ $pagamento[$i]->nome.' '.$pagamento[$i]->descricao }}</option>
+								@else<option value="{{ $pagamento[$i]->id }}">{{ $pagamento[$i]->nome.' '.$pagamento[$i]->descricao.' x' }}</option>
+								@endif
+							@endfor
+					</select>	  
+				</div>
+				<div class="form-group">
+					<label for="venda_quantidade">Quantidade</label>
+					<input type="number" id="venda_quantidade" name="quantidade" min="1" max="10" value="1">
 				</div>
 				<input type="text" class="hidden" name="confirmacao" value="0">
 				<input type="text" class="hidden" name="empresa_id" value="1">

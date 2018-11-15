@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\model\Pagamento;
 
 use App\model\Venda;
+use App\model\Viagem;
 
 use Illuminate\Http\Request;
 
@@ -28,9 +29,11 @@ class PagamentoController extends Controller
      */
     public function create()
     {
-        $venda = Venda::get();
+        $viagem = Viagem::get();
+       
+        
 
-        return view('/pagamento/create', compact('venda'));
+        return view('/pagamento/create', compact( 'viagem'));
     }
 
     /**
@@ -42,6 +45,7 @@ class PagamentoController extends Controller
     public function store(Request $request)
     {
         Pagamento::create($request->except('_token'));
+        
         return redirect('/pagamento');
     }
 
@@ -75,11 +79,27 @@ class PagamentoController extends Controller
      * @param  \App\model\Pagamento  $pagamento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pagamento $pagamento)
+    public function up(Request $request)
     {
-        //
-    }
+        $pagamento = Pagamento::find($request['id']);
 
+        $request['valor'] = $pagamento['valor'];        
+        $request['descricao'] = $pagamento['descricao'];
+        $request['empresa_id'] = $pagamento['empresa_id'];
+        $request['vencimento'] = $pagamento['vencimento'];
+        $request['parcela'] = $pagamento['parcela'];
+        $request['situacao'] = 0;
+        $request['pagamento'] = $pagamento['pagamento'];
+        $request['venda_id'] = $pagamento['venda_id'];
+
+        Pagamento::edit($pagamento,$request->except('_token','id'));
+
+        return redirect('/pagamento');
+    }
+    public function update(Request $request)
+    {
+
+    }
     /**
      * Remove the specified resource from storage.
      *

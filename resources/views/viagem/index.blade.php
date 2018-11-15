@@ -30,7 +30,16 @@
 							<td>{{ $viagens[$i]['data_saida'].' ('.$viagens[$i]['origem'].')' }}</td>
 							<td>{{ $viagens[$i]['data_retorno'].' ('.$viagens[$i]['destino'].')' }}</td>
 
-							<td><span></span></td>
+							<td><td><a href="{{url('/viagem/'.$viagens[$i]->id.'/edit')}}"><i class="fa fa-edit fa-fw"></i></a>							
+
+<form method="POST" action="/viagem/{{ $viagens[$i]->id }}" accept-charset="UTF-8">
+	{{ method_field('DELETE') }}
+	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	<a type="submit" href="#" type="button" rel="tooltip" title="" class="btn btn-danger btn-simple btn-xs" data-original-title="Delete" onclick='this.parentNode.submit(); return false;'>
+		<i class="fa fa-times"></i>
+	  </a>								
+</form>
+</td></td>
 						</tr>
 						@endfor
 					</tbody>
