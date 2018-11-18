@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\model\Cliente;
 use App\model\Pessoa;
+use App\model\Endereco;
+use App\Http\Requests\MultipleRequestPessoaEndereco;
 
 class ClienteController extends Controller
 {
@@ -35,11 +37,14 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MultipleRequestPessoaEndereco $request)
     {
         $pessoa_id = Pessoa::create($request->except('_token'));
-
-        Cliente::create(['pessoa_id'=>$pessoa_id['id'], 'empresa_id'=>parent::$configid]);
+        $cliente = Cliente::create(['pessoa_id'=>$pessoa_id['id'], 'empresa_id'=>parent::$configid]);
+        $request['id_tipo'] = $cliente['id'];
+        $request['tipo'] = "cliente";
+        Endereco::create($request->except('_token'));
+        
         return redirect('/cliente');
     }
 
@@ -52,7 +57,6 @@ class ClienteController extends Controller
     public function show($id)
     {
 
-        //
     }
 
     /**
@@ -63,7 +67,7 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        $cliente  = Cliente::find($id);
+        $cliente  = Cliente::with('endereco')->find($id);
         return view('/cliente/edit', compact('cliente'));
     }
 
@@ -74,10 +78,15 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MultipleRequestPessoaEndereco $request, $id)
     {
+        $cliente = Cliente::find($id);
+        $endereco = $cliente->endereco;
+        $request['id_tipo'] = $cliente['id'];
+        $request['tipo'] = "cliente";
         $pessoa = Pessoa::find($request['pessoa_id']);
-        $pessoa_id = Pessoa::edit($pessoa,$request->except('_token','pessoa_id'));
+        Pessoa::edit($pessoa,$request->except('_token','pessoa_id'));
+        Endereco::edit($endereco, $request->except('_token'));
         return redirect('/cliente');
     }
 
@@ -90,9 +99,11 @@ class ClienteController extends Controller
     public function destroy($id)
     {
        
-        $pessoa = Cliente::find($id);
+        $cliente = Cliente::find($id);
+        $endereco = $cliente->endereco;
         Cliente::destroy($id);
-        Pessoa::destroy($pessoa['pessoa_id']);
+        Pessoa::destroy($cliente['pessoa_id']);
+        $endereco->delete();
         return redirect('/cliente');
 
     }

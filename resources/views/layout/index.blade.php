@@ -304,13 +304,25 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Motorista<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('/motorista/')}}">Listar</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/motorista/create')}}">Cadastrar motorista</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Clientes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{url('/cliente/')}}">Listar</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/cliente/create')}}">Novo Cliente</a>
+                                    <a href="{{url('/cliente/create')}}">Cadastrar Cliente</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

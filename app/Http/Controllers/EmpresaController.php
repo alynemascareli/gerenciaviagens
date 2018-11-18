@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\EmpresaRequest;
 use Illuminate\Http\Request;
 use App\model\Empresa;
+use PhpParser\Node\Scalar\Encapsed;
+use App\model\Endereco;
+use App\Http\Requests\MultipleRequestEmpresaEndereco;
 
 class EmpresaController extends Controller
 {
@@ -28,15 +31,13 @@ class EmpresaController extends Controller
         return view('empresa/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+ 
+    public function store(MultipleRequestEmpresaEndereco $request)
     {
-        Empresa::create($request->except('_token'));
+        $empresa = Empresa::create($request->except('_token'));
+        $request['id_tipo'] = $empresa['id'];
+        $request['tipo'] = "empresa";
+        Endereco::create($request->except('_token'));
         return redirect('/empresa');
     }
 
@@ -59,7 +60,8 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        $empresa = Empresa::find($id);
+        $empresa = Empresa::with('endereco')->find($id);
+        //dd($empresa);
         return view('empresa/edit', compact('empresa'));
     }
 
@@ -70,11 +72,14 @@ class EmpresaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MultipleRequestEmpresaEndereco $request, $id)
     {
-        $empresa = Empresa::find($id);
+        $empresa = Empresa::with('endereco')->find($id);
+        $endereco = $empresa->endereco;
+        $request['id_tipo'] = $empresa['id'];
+        $request['tipo'] = "empresa";
         Empresa::edit($empresa, $request->except('_token', 'id'));
-
+        Endereco::edit($endereco, $request->except('_token'));
         return redirect('/empresa');
     }
 
@@ -87,7 +92,10 @@ class EmpresaController extends Controller
     public function destroy($id)
     {
         $empresa = Empresa::find($id);
+        $endereco = $empresa->endereco;
+
         $empresa->delete();
+        $endereco->delete();
 
         return redirect('/empresa');
     }

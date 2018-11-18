@@ -14,8 +14,9 @@ class Empresa extends Model
  protected $with = ['endereco'];
 
      public function endereco(){
-        return $this->hasOne(Endereco::class, 'id_empresa','id');
+        return $this->hasOne(Endereco::class, 'id_tipo','id');
     }
+
     public static function create(Array $data)
     {
         $empresa = new Empresa();
@@ -37,11 +38,6 @@ class Empresa extends Model
         $empresa->nome_contato = $data['nome_contato'];
         $empresa->dominio = $data['dominio'];
         $empresa->telefone_contato = $data['telefone_contato'];
-        $empresa->endereco_contato = $data['endereco_contato'];
-        $empresa->numero_contato = $data['numero_contato'];
-        $empresa->cidade_contato = $data['cidade_contato'];
-        $empresa->estado_contato = $data['estado_contato'];
-
         $empresa->save();
     }
 }
