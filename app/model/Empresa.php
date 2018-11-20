@@ -37,7 +37,8 @@ class Empresa extends Model
         $empresa->cnpj = $data['cnpj'];
         $empresa->nome_contato = $data['nome_contato'];
         $empresa->dominio = $data['dominio'];
-        $empresa->telefone_contato = $data['telefone_contato'];
+        $empresa->telefone = $data['telefone'];
+        $empresa->logotipo = $data['logotipo'];
         $empresa->save();
     }
 }

@@ -41,16 +41,16 @@ class Venda extends Model
     
 
     protected static function setData(Venda &$venda, $data){
-        $venda->cliente_id = $data['cliente_id'];
-        $venda->viagem_id = $data['viagem_id'];
-        $venda->pagamento_id = $data['pagamento_id'];
+        $venda->quantidade = $data['quantidade'];
         $venda->confirmacao = $data['confirmacao'];
         $venda->empresa_id = $data['empresa_id'];
-        $venda->cliente_empresa_id = $data['cliente_empresa_id'];
-        $venda->viagem_empresa_id = $data['viagem_empresa_id'];
+        $venda->cliente_id = $data['cliente_id'];
+        $venda->viagem_id = $data['viagem_id'];
         $venda->tipo_pagamento_id = $data['tipo_pagamento_id'];
-        $venda->tipo_pagamento_empresa_id = $data['tipo_pagamento_empresa_id'];
-        $venda->quantidade = $data['quantidade'];
+        // $venda->pagamento_id = $data['pagamento_id'];
+        // $venda->cliente_empresa_id = $data['cliente_empresa_id'];
+        // $venda->viagem_empresa_id = $data['viagem_empresa_id'];
+        // $venda->tipo_pagamento_empresa_id = $data['tipo_pagamento_empresa_id'];
 
 
         $venda->save();

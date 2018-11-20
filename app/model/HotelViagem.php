@@ -29,6 +29,7 @@ class HotelViagem extends Model
     protected static function setData(HotelViagem &$hotelViagem, $data){
         $hotelViagem->hotel_id = $data['hotel_id'];
         $hotelViagem->viagem_id = $data['viagem_id'];
+        $hotelViagem->empresa_id = $data['empresa_id'];
      
         $hotelViagem->save();
     }

@@ -25,14 +25,11 @@ class Pagamento extends Model
 
     protected static function setData(Pagamento &$pagamento, $data){
         $pagamento->valor = $data['valor'];
-        // $pagamento->viagem_id = $data['viagem_id'];
-        // $pagamento->cliente_id = $data['cliente_id'];
         $pagamento->descricao = $data['descricao'];
-        $pagamento->empresa_id = $data['empresa_id'];
-        $pagamento->vencimento = $data['vencimento'];
         $pagamento->parcela = $data['parcela'];
-        // $pagamento->situacao = $data['situacao'];
+        $pagamento->vencimento = $data['vencimento'];        
         $pagamento->pagamento = $data['pagamento'];
+        $pagamento->empresa_id = $data['empresa_id'];
         $pagamento->venda_id = $data['venda_id'];
         $pagamento->save();
     }

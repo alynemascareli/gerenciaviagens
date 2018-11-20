@@ -29,6 +29,7 @@ class OnibusViagem extends Model
     protected static function setData(onibusViagem &$onibusViagem, $data){
         $onibusViagem->onibus_id = $data['onibus_id'];
         $onibusViagem->viagem_id = $data['viagem_id'];
+        $onibusViagem->empresa_id = $data['empresa_id'];
      
         $onibusViagem->save();
     }

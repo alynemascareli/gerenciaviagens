@@ -28,11 +28,11 @@ class Hotel extends Model
         $hotel->nome = $data['nome'];
         $hotel->proprietario = $data['proprietario'];
         $hotel->telefone = $data['telefone'];
-        $hotel->endereco = $data['endereco'];
-        $hotel->numero = $data['numero'];
-        $hotel->bairro = $data['bairro'];
-        $hotel->cidade = $data['cidade'];
-        $hotel->estado = $data['estado'];
+        // $hotel->endereco = $data['endereco'];
+        // $hotel->numero = $data['numero'];
+        // $hotel->bairro = $data['bairro'];
+        // $hotel->cidade = $data['cidade'];
+        // $hotel->estado = $data['estado'];
         $hotel->capacidade = $data['capacidade'];
         $hotel->acomodacao = $data['acomodacao'];
         $hotel->observacao = $data['observacao'];
