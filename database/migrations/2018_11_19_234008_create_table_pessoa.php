@@ -22,6 +22,7 @@ class CreateTablePessoa extends Migration
             $table->string('telefone');
             $table->string('rg');
             $table->date('data_expedicao');
+            $table->dateTime('deleted_at');
             $table->timestamps();
         });
     }

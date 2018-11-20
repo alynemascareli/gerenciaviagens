@@ -19,6 +19,8 @@ class CreateTableMotoristaViagem extends Migration
 
             $table->unsignedInteger('motorista_id');
             $table->foreign('motorista_id')->references('id')->on('motorista')->onDelete('cascade');
+
+            $table->dateTime('deleted_at');
             $table->timestamps();
         });
     }

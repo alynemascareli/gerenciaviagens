@@ -24,6 +24,7 @@ class CreateTableEndereco extends Migration
             $table->string('estado');
             $table->string('cep');
             $table->string('complemento');
+            $table->dateTime('deleted_at');
             $table->timestamps();
         });
     }

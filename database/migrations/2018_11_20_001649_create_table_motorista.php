@@ -18,6 +18,7 @@ class CreateTableMotorista extends Migration
             $table->string('cnh')->unique();
             $table->unsignedInteger('pessoa_id');
             $table->foreign('pessoa_id')->references('id')->on('pessoa')->onDelete('cascade');
+            $table->dateTime('deleted_at');
             $table->timestamps();
         });
     }

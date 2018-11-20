@@ -19,6 +19,7 @@ class CreateTableCliente extends Migration
             $table->unsignedInteger('empresa_id');
             $table->foreign('pessoa_id')->references('id')->on('pessoa')->onDelete('cascade');
             $table->foreign('empresa_id')->references('id')->on('empresa')->onDelete('cascade');
+            $table->dateTime('deleted_at');
             $table->timestamps();
         });
     }

@@ -21,6 +21,7 @@ class CreateTableEmpresa extends Migration
             $table->string('telefone');
             $table->string('logotipo');
             $table->string('dominio');
+            $table->dateTime('deleted_at');
             $table->timestamps();
         });
     }

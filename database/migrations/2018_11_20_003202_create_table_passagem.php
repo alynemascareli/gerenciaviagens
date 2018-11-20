@@ -22,6 +22,7 @@ class CreateTablePassagem extends Migration
             $table->date('data_expedicao');
             $table->unsignedInteger('venda_id');
             $table->foreign('venda_id')->references('id')->on('venda')->onDelete('cascade');
+            $table->dateTime('deleted_at');
             $table->timestamps();
         });
     }

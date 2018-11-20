@@ -23,6 +23,7 @@ class CreateTableHotel extends Migration
             $table->longText('observacao');
             $table->unsignedInteger('empresa_id');
             $table->foreign('empresa_id')->references('id')->on('empresa')->onDelete('cascade');
+            $table->dateTime('deleted_at');
             $table->timestamps();
         });
     }

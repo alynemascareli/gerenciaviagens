@@ -33,7 +33,7 @@ class CreateTableVenda extends Migration
             $table->foreign('tipo_pagamento_id')->references('id')->on('tipo_pagamento')->onDelete('cascade');
 
 
-
+            $table->dateTime('deleted_at');
             $table->timestamps();
         });
     }
