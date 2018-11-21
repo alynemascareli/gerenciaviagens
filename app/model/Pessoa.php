@@ -27,9 +27,9 @@ class Pessoa extends Model {
         $pessoa->email = $data['email'];
         $pessoa->telefone = $data['telefone'];
         $pessoa->cpf = $data['cpf'];
-        $pessoa->datanascimento = $data['datanascimento'];
+        $pessoa->data_nascimento = $data['data_nascimento'];
         $pessoa->rg = $data['rg'];
-        $pessoa->dataexpedicao = $data['dataexpedicao'];
+        $pessoa->data_expedicao = $data['data_expedicao'];
 
         $pessoa->save();
     }

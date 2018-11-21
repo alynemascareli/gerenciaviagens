@@ -28,7 +28,7 @@
 				<tr>
 					<td>{{ $clientes[$i].nome }}</td>
 					<td>{{ $clientes[$i].telefone }}</td>
-					<td>{{ $clientes[$i].datanascimento }}</td>
+					<td>{{ $clientes[$i].data_nascimento }}</td>
 				</tr>
 				@endfor
 			</tbody>

@@ -27,7 +27,7 @@ CREATE TABLE `cliente` (
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `cpf` varchar(14) NOT NULL,
-  `datanascimento` date NOT NULL,
+  `data_nascimento` date NOT NULL,
   `telefone` varchar(45) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,

@@ -2,7 +2,9 @@
 
 namespace App\model;
 
-use Illuminate\Database\Eloquent\Model;
+
+use App\model\Model;
+
 
 class Motorista extends Model
 {

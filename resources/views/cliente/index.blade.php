@@ -22,7 +22,7 @@
 						<tr>
 							<td>{{ $clientes[$i]->pessoa['nome'] }}</td>
 							<td>{{ $clientes[$i]->pessoa['telefone'] }}</td>
-							<td>{{ $clientes[$i]->pessoa['datanascimento'] }}</td>
+							<td>{{ $clientes[$i]->pessoa['data_nascimento'] }}</td>
 							<td><a href="{{url('/cliente/'.$clientes[$i]->id.'/edit')}}"><i class="fa fa-edit fa-fw"></i></a>							
 
 							<form method="POST" action="/cliente/{{ $clientes[$i]->id }}" accept-charset="UTF-8">

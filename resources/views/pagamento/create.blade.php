@@ -43,8 +43,11 @@
 <script type="text/javascript" charset="utf-8" async defer>
 	function verificaParcelas(){
 		let id = document.getElementById('viagem_viagem').value;
-		let url = "http://gerencia-viagens.test/api/pagamento/"+id;
+		console.log(window.location.href);
+		// let url = "http://gerencia-viagens.test/api/pagamento/"+id;
 		//let url = "http://gerenciaviagens/api/pagamento/"+id;
+		let url = "http://"+ window.location.href.split("/")[2] +'/api/pagamento/'+ id;
+
 		var xhttp = new XMLHttpRequest();
 		document.getElementById("pagamento_tabela").innerHTML = '';
 
@@ -108,12 +111,13 @@
 		xhttp.send();
 	}
 	// window.onload = function() {
-	// 	verificaParcelas();
+		
 	// };
 	function verificaVendas(){
 		let id = document.getElementById('pagamento_viagem').value;
-		let url = "http://gerencia-viagens.test/api/venda/"+id;
+		// let url = "http://gerencia-viagens.test/api/venda/"+id;
 		//let url = "http://gerenciaviagens/api/pagamento/"+id;
+		let url = "http://"+ window.location.href.split("/")[2] +'/api/pagamento/'+ id;
 		let xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {

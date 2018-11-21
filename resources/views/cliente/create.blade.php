@@ -36,8 +36,8 @@
 		    	<input type="text" class="form-control" id="cliente_telefone" name="telefone">
 		  	</div>
 			<div class="form-group">
-		    	<label for="cliente_datanascimento">Data de Nascimento</label>
-		    	<input type="date" class="form-control" id="cliente_datanascimento" name="datanascimento">
+		    	<label for="cliente_data_nascimento">Data de Nascimento</label>
+		    	<input type="date" class="form-control" id="cliente_data_nascimento" name="data_nascimento">
 		  	</div>
 		  	<div class="form-group">
 		    <label for="cliente_cpf">RG</label>
@@ -45,7 +45,7 @@
 		  </div>
 		  <div class="form-group">
 		    <label for="cliente_cpf">data de Expedição</label>
-		    <input type="date" class="form-control" id="cliente_cpf" name="dataexpedicao">
+		    <input type="date" class="form-control" id="cliente_cpf" name="data_expedicao">
 			</div>
 			<div class="form-group">
                 <label for="endereco">Endereço</label>

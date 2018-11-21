@@ -36,8 +36,8 @@
                <input type="text" class="form-control" id="motorista_telefone" name="telefone">
              </div>
            <div class="form-group">
-               <label for="motorista_datanascimento">Data de Nascimento</label>
-               <input type="date" class="form-control" id="motorista_datanascimento" name="datanascimento">
+               <label for="motorista_data_nascimento">Data de Nascimento</label>
+               <input type="date" class="form-control" id="motorista_data_nascimento" name="data_nascimento">
              </div>
              <div class="form-group">
            <label for="motorista_cpf">RG</label>
@@ -45,7 +45,7 @@
          </div>
          <div class="form-group">
            <label for="motorista_cpf">data de Expedição</label>
-           <input type="date" class="form-control" id="motorista_cpf" name="dataexpedicao">
+           <input type="date" class="form-control" id="motorista_cpf" name="data_expedicao">
            </div>
            <div class="form-group">
                <label for="cnh">CNH</label>

@@ -6,7 +6,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
+use Illuminate\Support\Facades\Auth;
 use App\model\Empresa;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -23,20 +23,30 @@ class Controller extends BaseController
     protected $errors;
     protected $code = 200;
     protected $content;
+    public static $empresa;
 
     public static $configid = 0;       
     public static $footer=[];
     
     public function __construct(Request $request)
     {
+
+        $this->middleware('auth');
+
+        
         $domain = url('/');
         $config = Empresa::where('dominio','=',$domain)->first();
-        // dd($domain, $config);
-
+        $empresa = Empresa::where('user_id','=', Auth::id())->first();
+        dd($config , $empresa, $domain, Auth::id(), Auth::check(), Auth::user(), config('app.name', 'Laravel'));
+        if($config['id'] != $empresa['id']){
+            return view('error404');
+        }
+        
         if($config == null){
             return view('error404');
         }else{
-        	self::$configid = $config->id;
+            self::$empresa = $empresa['id'];
+        	self::$configid = $config['id'];
         	View::share('color', $config->color);
             View::share('theme', $config->theme);
 

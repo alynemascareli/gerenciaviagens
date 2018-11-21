@@ -35,12 +35,12 @@
 		  	</div>
 				<div class="form-group">
 		    	<label for="viagem_saida">Data Saída</label>
-		    	<input type="datetime-local" class="form-control" id="viagem_saida" name="data_saida">
+		    	<input type="date" class="form-control" id="viagem_saida" name="data_saida">
 		    	
 		  	</div>
 				<div class="form-group">
 		    	<label for="viagem_retorno">Data Retorno</label>
-		    	<input type="datetime-local" class="form-control" id="viagem_retorno" name="data_retorno">
+		    	<input type="date" class="form-control" id="viagem_retorno" name="data_retorno">
 		    	
 		  	</div>
 

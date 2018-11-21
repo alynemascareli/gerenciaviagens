@@ -28,9 +28,9 @@ class PessoaRequest extends FormRequest
             'email' => 'required',
             'telefone' => 'required',
             'cpf' => 'required',
-            'datanascimento' => 'required',
+            'data_nascimento' => 'required',
             'rg' => 'required',
-            'dataexpedicao' => 'required',
+            'data_expedicao' => 'required',
         ];
     }
 
