@@ -7,9 +7,13 @@ use App\model\Cliente;
 use App\model\Pessoa;
 use App\model\Endereco;
 use App\Http\Requests\MultipleRequestPessoaEndereco;
-
+use Illuminate\Support\Facades\Auth;
 class ClienteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

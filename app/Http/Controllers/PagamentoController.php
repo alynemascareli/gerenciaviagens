@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\model\Pagamento;
-
+use Illuminate\Support\Facades\Auth;
 use App\model\Venda;
 use App\model\Viagem;
 
@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class PagamentoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
    /**
      * Display a listing of the resource.
      *

@@ -31,21 +31,17 @@ class Controller extends BaseController
     public function __construct(Request $request)
     {
 
-        $this->middleware('auth');
-
-        
         $domain = url('/');
         $config = Empresa::where('dominio','=',$domain)->first();
-        $empresa = Empresa::where('user_id','=', Auth::id())->first();
-        dd($config , $empresa, $domain, Auth::id(), Auth::check(), Auth::user(), config('app.name', 'Laravel'));
-        if($config['id'] != $empresa['id']){
-            return view('error404');
-        }
+        // $empresa = Empresa::where('user_id','=', Auth::id())->first();
+        // if($config['id'] != $empresa['id']){
+        //     return view('error404');
+        // }
         
         if($config == null){
             return view('error404');
         }else{
-            self::$empresa = $empresa['id'];
+            // self::$empresa = $empresa['id'];
         	self::$configid = $config['id'];
         	View::share('color', $config->color);
             View::share('theme', $config->theme);

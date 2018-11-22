@@ -8,9 +8,13 @@ use App\model\Viagem;
 use App\model\TipoPagamento;
 use App\model\Pagamento;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class VendaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
    /**
      * Display a listing of the resource.
      *

@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\model\Viagem;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ViagemController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
   /**
      * Display a listing of the resource.
      *

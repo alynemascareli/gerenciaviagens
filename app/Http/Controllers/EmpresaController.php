@@ -7,9 +7,13 @@ use App\model\Empresa;
 use PhpParser\Node\Scalar\Encapsed;
 use App\model\Endereco;
 use App\Http\Requests\MultipleRequestEmpresaEndereco;
-
+use Illuminate\Support\Facades\Auth;
 class EmpresaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +21,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        $empresas = Empresa::get();
+        $empresas = Empresa::where('id','=',Auth::user()->empresa_id)->get();
         return view('/empresa/index', compact('empresas'));
     }
 
