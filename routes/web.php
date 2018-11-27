@@ -32,6 +32,7 @@ Route::get('/home', 'DashboardController@home');
     Route::get('pagamento', 'PagamentoController@index');
     Route::post('pagamento/up', 'PagamentoController@up');
     Route::get('pagamento/create', 'PagamentoController@create');
+    Route::post('api/register', 'APIController@register');
 
 Auth::routes();
 

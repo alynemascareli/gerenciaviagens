@@ -32,9 +32,9 @@
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
+                                    <span class="help-block">
                                 @endif
                             </div>
                         </div>
