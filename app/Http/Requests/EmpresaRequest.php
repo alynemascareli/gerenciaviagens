@@ -28,7 +28,7 @@ class EmpresaRequest extends FormRequest
             'cnpj' => 'required',
             'nome_contato' => 'required',
             'dominio' => 'required',
-            'telefone_contato' => 'required'
+            'telefone' => 'required'
         ];
     }
 

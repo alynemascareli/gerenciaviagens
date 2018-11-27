@@ -36,8 +36,8 @@
                 <input type="text" class="form-control" id="dominio" name="dominio">
             </div>
             <div class="form-group">
-                <label for="telefone_contato">telefone</label>
-                <input type="text" class="form-control" id="telefone_contato" name="telefone_contato">
+                <label for="telefone">telefone</label>
+                <input type="text" class="form-control" id="telefone" name="telefone">
             </div>
             <div class="form-group">
                 <label for="endereco">Endereço</label>

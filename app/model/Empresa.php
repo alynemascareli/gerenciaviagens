@@ -38,7 +38,7 @@ class Empresa extends Model
         $empresa->nome_contato = $data['nome_contato'];
         $empresa->dominio = $data['dominio'];
         $empresa->telefone = $data['telefone'];
-        $empresa->logotipo = $data['logotipo'];
+        $empresa->logotipo = "";
         $empresa->save();
     }
 }
